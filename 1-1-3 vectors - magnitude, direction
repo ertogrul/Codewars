@@ -1,0 +1,80 @@
+# 1-1-2 vectors - algebra refresh
+import math
+class Vector(object):
+    def __init__(self, coordinates):
+        try:
+            if not coordinates:
+                raise ValueError
+            self.coordinates = tuple(coordinates)
+            self.dimension = len(coordinates)
+        except ValueError:
+            raise ValueError('The coordinates must be nonempty')
+        except TypeError:
+            raise TypeError('The coordinates must be an iterable')
+    def __str__(self):
+        return 'Vector: {}'.format(self.coordinates)
+    def __eq__(self, v):
+        return self.coordinates == v.coordinates
+    def plus(self, v):
+        new_coordinates = [x+y for x, y in zip(self.coordinates, v.coordinates)]
+        # return round(new_coordinates, 3)#<======================CZEMU NIE MOGE UZYC ROUND ??????????????????
+        return Vector(new_coordinates)
+    def minus(self, v):
+        new_coordinates = [x-y for x, y in zip(self.coordinates, v.coordinates)]
+        return Vector(new_coordinates)
+    def multiply(self, a):
+        new_coordinates = [a * x for x in self.coordinates]
+        return Vector(new_coordinates)
+    def magnitude(self):
+        coordinates_squared = [x**2 for x in self.coordinates]
+        return math.sqrt(sum(coordinates_squared))
+        '''
+        calculated_mag = 0
+        for x in range(len(self.coordinates)):
+            calculated_mag += self.coordinates[x] * self.coordinates[x]
+        calculated_mag = math.sqrt(calculated_mag)
+        return calculated_mag
+        '''
+    def normalized(self):
+        try:
+            calculated_mag = self.magnitude()
+            return self.multiply(1/calculated_mag)
+        except ZeroDivisionError:
+            raise Exception('Cannot normalize the zero vector')
+        '''
+        calculated_dir = 1/self.magnitude()
+        print (calculated_dir)
+        calculated_dir = self.multiply(calculated_dir)
+        print (calculated_dir)
+        '''
+
+
+
+
+# plus
+# vector_1 = Vector([8.218, -9.341])
+# vector_2 = Vector([-1.129, 2.111])
+# print (vector_1.plus(vector_2))
+
+# minus
+# vector_3 = Vector([7.119, 8.215])
+# vector_4 = Vector([-8.223, 0.878])
+# print (vector_3.minus(vector_4))
+
+# scalar multiply
+# vector_5 = Vector([1.671, -1.012, -0.318])
+# print (vector_5.multiply(3))
+
+# magnitude
+# vector_6 = Vector([-0.221, 7.437])
+# vector_7 = Vector([8.813, -1.331, -6.247])
+# print (vector_6.magnitude())
+# print (vector_7.magnitude())
+
+# direction
+# vector_8 = Vector([5.581, -2.136])
+# vector_9 = Vector([1.996, 3.108, -4.554])
+# vector_10 = Vector([0, 0, 0])
+# print (vector_8.normalized())
+# print (vector_9.normalized())
+# print (vector_10.normalized())
