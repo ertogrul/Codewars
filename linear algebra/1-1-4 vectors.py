@@ -43,7 +43,9 @@ class Vector(object):
 
     def multiply(self, a):
         """Use if for multiplying two vectors.
-        Scalar Multiple."""
+
+        Scalar Multiple.
+        """
         new_coordinates = [Decimal(a) * x for x in self.coordinates]
         return Vector(new_coordinates)
 
@@ -71,7 +73,6 @@ class Vector(object):
         calculated_dir = self.multiply(calculated_dir)
         '''
     def dot(self, v):
-
         """Use if for calculation a dot product of two vectors."""
         """Dot product."""
         return sum([x * y for x, y in zip(self.coordinates, v.coordinates)])
@@ -120,10 +121,10 @@ class Vector(object):
 
 
 # plus------------------------------
-vector_1 = Vector([8.218, -9.341])
+# vector_1 = Vector([8.218, -9.341])
 # vector_2 = Vector([-1.129, 2.111])
 # print (vector_1.plus(vector_2))
-print (Vector([8.218, -9.341]))
+# print (Vector([8.218, -9.341]))
 # minus-----------------------------
 # vector_3 = Vector([7.119, 8.215])
 # vector_4 = Vector([-8.223, 0.878])
@@ -170,21 +171,19 @@ print (Vector([8.218, -9.341]))
 # vector_19 = Vector([1, 3, 5])
 # vector_20 = Vector([2, 6, 10])
 
-'''
-vector_21 = Vector([-7.579, -7.88])
-vector_22 = Vector([22.737, 23.64])
+# vector_21 = Vector([-7.579, -7.88])
+# vector_22 = Vector([22.737, 23.64])
 
-vector_23 = Vector([-2.029, 9.97, 4.172])
-vector_24 = Vector([-9.231, -6.639, -7.245])
+# vector_23 = Vector([-2.029, 9.97, 4.172])
+# vector_24 = Vector([-9.231, -6.639, -7.245])
 
 # vector_25 = Vector([-2.328, -7.284, -1.214])
 # vector_26 = Vector([-1.821, 1.072, -2.94])
-vector_25 = Vector([-2, -7, -1])
-vector_26 = Vector([-1, 1, -2])
+# vector_25 = Vector([-2, -7, -1])
+# vector_26 = Vector([-1, 1, -2])
 
-vector_27 = Vector([2.118, 4.827])
-vector_28 = Vector([0, 0])
+# vector_27 = Vector([2.118, 4.827])
+# vector_28 = Vector([0, 0])
 
 # print (vector_21.is_orthogonal_to(vector_22))
-print (vector_27.is_parrallel_to(vector_28))
-'''
+# print (vector_27.is_parrallel_to(vector_28))

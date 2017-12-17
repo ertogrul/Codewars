@@ -41,8 +41,8 @@ class Vector(object):
         new_coordinates = [x-y for x, y in zip(self.coordinates, v.coordinates)]
         return Vector(new_coordinates)
 
-    def multiply(self, a):
-        """Use if for multiplying two vectors.
+    def times_scalar(self, a):
+        """Use if for ing two vectors.
         Scalar Multiple."""
         new_coordinates = [Decimal(a) * x for x in self.coordinates]
         return Vector(new_coordinates)
@@ -63,12 +63,12 @@ class Vector(object):
         """Use it to calculate a normalization of a vector."""
         try:
             calculated_mag = self.magnitude()
-            return self.multiply(Decimal('1.0')/Decimal(calculated_mag))
+            return self.(Decimal('1.0')/Decimal(calculated_mag))
         except ZeroDivisionError:
             raise Exception(self.CANNOT_NORMALIZE_ZERO_VECTOR_MSG)
         '''
         calculated_dir = 1/self.magnitude()
-        calculated_dir = self.multiply(calculated_dir)
+        calculated_dir = self.(calculated_dir)
         '''
     def dot(self, v):
 
@@ -118,20 +118,43 @@ class Vector(object):
         """Check if vector is zero vector."""
         return self.magnitude() < tolerance
 
+    def component_parallel_to(self, basis):
+        try:
+            u = basis.normalized()
+            weight = self.dot(u)
+            return u.times_scalar(weight)
+        except Exception as e:
+            if str(e) == self.CANNOT_NORMALIZE_ZERO_VECTOR_MSG:
+                raise Exception(self.NO_UNIQUE_PARALLEL_COMPONENT_MSG)
+            else:
+                raise e
+    def component_orthogonal_to(self, basis):
+        try:
+            projection = self.component_parallel_to(basis)
+            return self.minus(projection)
+        except Exception as e:
+            if str(e) == self.NO_UNIQUE_PARALLEL_COMPONENT_MSG:
+                raise Exception(self.NO_UNIQUE_ORTHOGONAL_COMPONENT_MSG)
+        else:
+            raise e
+
+
+
+
 
 # plus------------------------------
-vector_1 = Vector([8.218, -9.341])
+# vector_1 = Vector([8.218, -9.341])
 # vector_2 = Vector([-1.129, 2.111])
 # print (vector_1.plus(vector_2))
-print (Vector([8.218, -9.341]))
+
 # minus-----------------------------
 # vector_3 = Vector([7.119, 8.215])
 # vector_4 = Vector([-8.223, 0.878])
 # print (vector_3.minus(vector_4))
 
-# scalar multiply-------------------
+# scalar -------------------
 # vector_5 = Vector([1.671, -1.012, -0.318])
-# print (vector_5.multiply(3))
+# print (vector_5.(3))
 
 # magnitude-------------------------
 # vector_6 = Vector([-0.221, 7.437])
@@ -170,21 +193,32 @@ print (Vector([8.218, -9.341]))
 # vector_19 = Vector([1, 3, 5])
 # vector_20 = Vector([2, 6, 10])
 
-'''
-vector_21 = Vector([-7.579, -7.88])
-vector_22 = Vector([22.737, 23.64])
+# vector_21 = Vector([-7.579, -7.88])
+# vector_22 = Vector([22.737, 23.64])
 
-vector_23 = Vector([-2.029, 9.97, 4.172])
-vector_24 = Vector([-9.231, -6.639, -7.245])
+# vector_23 = Vector([-2.029, 9.97, 4.172])
+# vector_24 = Vector([-9.231, -6.639, -7.245])
 
 # vector_25 = Vector([-2.328, -7.284, -1.214])
 # vector_26 = Vector([-1.821, 1.072, -2.94])
-vector_25 = Vector([-2, -7, -1])
-vector_26 = Vector([-1, 1, -2])
+# vector_25 = Vector([-2, -7, -1])
+# vector_26 = Vector([-1, 1, -2])
 
-vector_27 = Vector([2.118, 4.827])
-vector_28 = Vector([0, 0])
+# vector_27 = Vector([2.118, 4.827])
+# vector_28 = Vector([0, 0])
 
 # print (vector_21.is_orthogonal_to(vector_22))
-print (vector_27.is_parrallel_to(vector_28))
-'''
+# print (vector_27.is_parrallel_to(vector_28))
+
+# projecting vectors ===============================
+vector_29 = Vector([3.039, 1.879])
+vector_30 = Vector([0.825, 2.036])
+
+vector_31 = Vector([-9.88, -3.264, -8.159])
+vector_32 = Vector([-2.155, -9.353, -9.473])
+
+vector_33 = Vector([3.009, -6.172, 3.692, -2.51])
+vector_34 = Vector([6.404, -9.144, 2.759, 8.718])
+
+print (vector_29.component_parallel_to(vector_30))
+print (vector_29.component_orthogonal_to(vector_30))
