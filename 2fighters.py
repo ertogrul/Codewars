@@ -1,7 +1,3 @@
-# Two fighters, one winner
-# create Fighter object
-
-
 class Fighter(object):
     def __init__(self, name, health, damage_per_attack):
         self.name = name
