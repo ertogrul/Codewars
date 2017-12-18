@@ -1,21 +1,35 @@
 #  core_nn SOLUTION
 import numpy as n
-inputs = n.array([[0, 0, 1],
-                [1, 1, 1],
-                [1, 0, 1],
-                [0, 1, 0]])
-
-training_set_outputs = n.array([[0, 1, 1, 0]]).T
-
-synaptic_weights = 2 * n.random.random((3, 1)) - 1
-
-
-def __sigmoid(self, x):
-    return 1 / (1 + n.exp(-x))
-
-def think(inputs):
-    # Pass inputs through our neural network (our single neuron).
-    return __sigmoid(n.dot(inputs, synaptic_weights))
+# define input data
+input_data = n.array([[0, 0, 1],
+                    [1, 1, 1],
+                    [1, 0, 1],
+                    [0, 1, 0]])
+# define output data
+output_data = n.array([0, 1, 1, 0])
 
 
-print (think(inputs))
+# set weights
+n.random.seed(1)
+weights = 2 * n.random.random((3, 1)) -1
+
+# create NN
+class NerualNertwork():
+    def __init__(self):
+        # set first iteration weights
+        n.random.seed(1)
+        self.weights = 2 * n.random.random((3, 1)) - 1
+
+    def sigmoid(self, x):
+        # standardize inputs
+        return 1 / 1 + n.exp(-x)
+
+    def sig_derivative(self, x):
+        # check direction in which weights will go
+        return 1 * (1 - x)
+    def train(self, input_data, output_data, nr_iterations):
+        for i in iter(range(nr_iterations)):
+            output = self.think(input_data)
+            error = output_data - output
+            # adjustment = error * (sig_derivative(output))
+            adjustment = n.dot(input_data.T, error * self.sig_derivative(output))

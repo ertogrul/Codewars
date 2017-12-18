@@ -2,12 +2,10 @@ import numpy as n
 # The training set. We have 4 examples, each consisting of 3 input values
 # and 1 output value.
 training_set_inputs = n.array([[0, 0, 1],
-                            [1, 1, 1],
-                            [1, 0, 1],
-                            [0, 1, 0]])
-
+                                [1, 1, 1],
+                                [1, 0, 1],
+                                [0, 1, 0]])
 # inputs = n.array([[0, 0, 1],[1, 1, 1],[1, 0, 1],[0, 1, 0]])
-
 # print (training_set_inputs)
 training_set_outputs = n.array([[0, 1, 1, 0]]).T
 # print (training_set_outputs)
