@@ -62,12 +62,12 @@ class NeuralNetwork():
     def think(self, inputs):
         # Pass inputs through our neural network (our single neuron).
         return self.__sigmoid(n.dot(inputs, self.synaptic_weights))
-        #AA = self.__sigmoid(n.dot(inputs, self.synaptic_weights))
-        #print ("AAAAAAAA ", AA)
+        # AA = self.__sigmoid(n.dot(inputs, self.synaptic_weights))
+        # print ("AAAAAAAA ", AA)
 
 if __name__ == "__main__":
 
-    #Intialise a single neuron neural network.
+    # Intialise a single neuron neural network.
     neural_network = NeuralNetwork()
 
     print ("Random starting synaptic weights: ")
