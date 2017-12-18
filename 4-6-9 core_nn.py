@@ -5,9 +5,12 @@ training_set_inputs = n.array([[0, 0, 1],
                             [1, 1, 1],
                             [1, 0, 1],
                             [0, 1, 0]])
-print (training_set_inputs)
+
+# inputs = n.array([[0, 0, 1],[1, 1, 1],[1, 0, 1],[0, 1, 0]])
+
+# print (training_set_inputs)
 training_set_outputs = n.array([[0, 1, 1, 0]]).T
-print (training_set_outputs)
+# print (training_set_outputs)
 
 class NeuralNetwork():
     def __init__(self):
@@ -16,6 +19,7 @@ class NeuralNetwork():
         n.random.seed(1)
 
         # We model a single neuron, with 3 input connections and 1 output connection.
+        # WHY NOT 4 INPUT CONNECTIONS ??
         # We assign random weights to a 3 x 1 matrix, with values in the range -1 to 1
         # and mean 0.
         self.synaptic_weights = 2 * n.random.random((3, 1)) - 1
@@ -31,7 +35,6 @@ class NeuralNetwork():
     # It indicates how confident we are about the existing weight.
     def __sigmoid_derivative(self, x):
         return x * (1 - x)
-
 
     # We train the neural network through a process of trial and error.
     # Adjusting the synaptic weights each time.
@@ -51,7 +54,7 @@ class NeuralNetwork():
 
             # Adjust the weights.
             self.synaptic_weights += adjustment
-            if (iteration % 1000 == 0):
+            if (iteration % 100 == 0):
                 print ("error after %s iterations: %s" % (iteration, str(n.mean(n.abs(error)))))
 
 
@@ -59,7 +62,8 @@ class NeuralNetwork():
     def think(self, inputs):
         # Pass inputs through our neural network (our single neuron).
         return self.__sigmoid(n.dot(inputs, self.synaptic_weights))
-
+        #AA = self.__sigmoid(n.dot(inputs, self.synaptic_weights))
+        #print ("AAAAAAAA ", AA)
 
 if __name__ == "__main__":
 
