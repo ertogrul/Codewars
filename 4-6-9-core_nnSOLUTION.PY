@@ -33,3 +33,6 @@ class NerualNertwork():
             error = output_data - output
             # adjustment = error * (sig_derivative(output))
             adjustment = n.dot(input_data.T, error * self.sig_derivative(output))
+            self.weights += adjustment
+            if (iteration % 100 == 0):
+                print ("error after %s iteration: %s" % (iteration, str(n.mean(n.abs(error)))))
