@@ -52,7 +52,7 @@ class NeuralNetwork():
 
             # Adjust the weights.
             self.synaptic_weights += adjustment
-            if (iteration % 100 == 0):
+            if (iteration % 1000 == 0):
                 print ("error after %s iterations: %s" % (iteration, str(n.mean(n.abs(error)))))
 
 
@@ -60,8 +60,6 @@ class NeuralNetwork():
     def think(self, inputs):
         # Pass inputs through our neural network (our single neuron).
         return self.__sigmoid(n.dot(inputs, self.synaptic_weights))
-        # AA = self.__sigmoid(n.dot(inputs, self.synaptic_weights))
-        # print ("AAAAAAAA ", AA)
 
 if __name__ == "__main__":
 

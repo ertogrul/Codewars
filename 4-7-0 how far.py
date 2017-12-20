@@ -8,9 +8,6 @@
 
 def travel(total_time, run_time, rest_time, speed):
     meters_traveled = 0
-
-    #if total_time < run_time:
-    #    return speed * total_time
     if total_time == 0 or run_time == 0 or speed == 0:
          return 0
     else:
@@ -22,7 +19,6 @@ def travel(total_time, run_time, rest_time, speed):
             meters_traveled += speed * run_time
             total_time -= rest_time
         return meters_traveled
-
 # print (travel(1000, 10, 127, 14)) # 1120
 # print (travel(1000, 10, 0, 10)) #  10000
 # print (travel(25, 50, 120, 18)) # 450
@@ -36,4 +32,4 @@ def travel(total_time, run_time, rest_time, speed):
 # print (travel(0, 100, 10, 14)) #  0
 # print (travel(250, 0, 5, 14)) # 0
 # print (travel(100, 10, 0, 14)) # 1400
-print (travel(500, 100, 10, 0)) #  0
+# print (travel(500, 100, 10, 0)) #  0
