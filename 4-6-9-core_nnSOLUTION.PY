@@ -14,7 +14,7 @@ class NeuralNetwork():
 
     def sigmoid(self, x):
         # standardize inputs
-        return 1 / ( 1 + n.exp(-x))
+        return 1 / (1 + n.exp(-x))
 
     def sig_derivative(self, x):
         # check direction in which weights will go
