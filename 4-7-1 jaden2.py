@@ -1,32 +1,13 @@
 def toJadenCase(string):
-    a = ""
-    #string = string.title()
-    #for x in range(len(string)):
-    str1 = list(string)
-    print (str1)
-    print (str1[2])
-    str1[2] = "Z"
-    print (str1[2])
-
-
-    for x in str1:
-        print (str1[x])
-        #print (x)
-
-        if x == "'":
-            str1[x] = "q"
-            print (x)
-        else:
-            print (x)
-        
-        # print (string[x])
-        #if string[x] == "'":
-        #    string[x] = string[x].upper(
-        #    print (string[x])
-    ''.join(a)
-    print (a)
-    #return string
-
+    words = []
+    work_list = list(string)
+    for x in work_list:
+        letter1 = list(x)
+        print (letter1)
+        letter1[0] = letter1[0].upper()
+        words.append(''.join(letter1))
+        print (words)
+    return ' '.join(words)
 
 #upper()
 #''.join(a)
