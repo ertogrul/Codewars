@@ -3,7 +3,6 @@ def max_rot(n):
     greatest = 0
     num = (list(str(n)))
     initial_num_length = len(num)
-    print ("initial num length ", initial_num_length)
     first_digits = []
     check_greatest(first_digits, num)
     while (len(first_digits) <= initial_num_length - 1):
