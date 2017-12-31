@@ -1,12 +1,17 @@
 def spin_words(s):
+    answer = ""
+    temp = s.split(" ")
+    for x in temp:
+        if (len(x) <= 4):
+            answer = answer + x + " "
+        else:
+            x = "".join(list(reversed(x)))
+            answer = answer + x + " "
+    return answer.strip()
 
-    
-    return "".join(list(reversed(s)))
-
-    #print (l)
 
 
 # print (spin_words("Welcome"))  # "emocleW")
-print (spinWords("Hey fellow warriors"))  # returns "Hey wollef sroirraw"
-# spinWords("This is a test")  # returns "This is a test"
-# spinWords("This is another test")  # returns "This is rehtona test"
+# print (spin_words("Hey fellow warriors"))  # returns "Hey wollef sroirraw"
+# print (spin_words("This is a test"))  # returns "This is a test"
+print (spin_words("This is another test"))  # returns "This is rehtona test"
