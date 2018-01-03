@@ -6,7 +6,6 @@ def triple_double(num1, num2):
     else:
         return False
 
-
 def search_num1(a, b):
     repeated = 0
     previous_digit = -1
