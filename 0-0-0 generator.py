@@ -13,6 +13,7 @@ for i in nums:
 
 print ()
 
+
 more_nums = gen_nums()
 print (next(more_nums))
 print (next(more_nums))
