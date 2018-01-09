@@ -5,6 +5,8 @@ def decrypt(encrypted_text, n):
     """
     encrypted_text = list(str(encrypted_text))
     print (len(encrypted_text))
+    #if (len(encrypted_text) % 2 == 0):
+        # TU SKONCZYLEM - UTWORZ ZBIOR1 OD 0 DO TEXT/2 I ZBIOR2 Z RESZTY
     pass
 
 
