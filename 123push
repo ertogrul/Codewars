@@ -1,0 +1,10 @@
+#!/bin/bash
+git status
+git add *
+git commit -m '123'
+sleep 1
+git push -u origin 
+sleep 1
+echo "Done!"
+
+
