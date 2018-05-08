@@ -1,20 +1,31 @@
-function redistributeHighestValue(banks, HighestValue, IndexofHighestValue ) {
-    var indexOfMemBankToAddBlocksTo = IndexofHighestValue+1;
-    if (indexOfMemBankToAddBlocksTo > banks.length - 1) indexOfMemBankToAddBlocksTo = 0;
-    while (highestValue > 0) {
-      banks[indexOfMemBankToAddBlocksTo] = banks[indexOfMemBankToAddBlocksTo + 1];
-      indexOfMemBankToAddBlocksTo += 1;
-      highestValue -= 1;
-      console.log("banks: " + banks);
+function checkPreviousConfigs(banks, allPreviousConfigs) {
+  var checkTrue = false;
+    //moving banks to String value (currentConfig)
+    var currentConfig = "";   
+    for (var i = 0; i < banks.length; i++) {
+        currentConfig = currentConfig + banks[i].toString();
+        console.log(currentConfig);
+      }
+      console.log("currentConfig " + currentConfig);
+
+  //checking previous config has the same config
+  for (var z = 0; z < allPreviousConfigs.length; z++) {
+    if (currentConfig == allPreviousConfigs[z]) {
+      console.log("There is a match: " + allPreviousConfigs[z]);
+      checkTrue = true;
+      break;
+    } else { 
+      console.log("No match: " + allPreviousConfigs[z]);
     }
-    return banks;
+  }
+  return checkTrue;
 }
 
-var arr = [0,2,7,0]; 
-var HighestValue = 7; 
-var IndexofHighestValue = 2; 
-findHighestValue(arr, HighestValue, IndexofHighestValue);
+var banks = [0,2,7,0];
+allPreviousConfigs = ['1301', '2421', '1100', '3344', '0270', '6543'];
 
+var x = checkPreviousConfigs(banks, allPreviousConfigs);
+console.log("result: " + x);
 
 
 
