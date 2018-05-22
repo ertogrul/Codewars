@@ -1,5 +1,27 @@
 
 
+
+var currentConfig = ["a", "b" , "c", "a", "e"];
+var banks = 'zzzz';
+
+
+var dict = []
+
+
+
+for (var i = 0; i < 5; i++) {
+	dict.push({
+    key:   currentConfig[i],
+    value: banks
+	});
+
+	console.log(dict)
+
+}
+
+
+
+/*
 var maxi  = -1;
 var indexOfMaxi = 0;
 
@@ -12,7 +34,7 @@ var banks = [5, 1, 10, 0, 1, 7, 13, 14, 3, 12, 8, 10, 7, 12, 0, 6] // 5042;
 findHighestValue(banks);
 console.log(maxi);
 console.log(indexOfMaxi);
-
+*/
 
 
 /*

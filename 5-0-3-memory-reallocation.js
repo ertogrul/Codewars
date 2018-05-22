@@ -1,6 +1,7 @@
 function memAlloc(banks) {
  
-  	var allPreviousConfigs = [[0, 1]];
+  	var allPreviousConfigs = [];
+  	var dict = [];
   	var highestValue;
   	var indexOfHighestValue;
 	
@@ -30,38 +31,33 @@ function memAlloc(banks) {
 	      return banks;
     }
 
-    function checkPreviousConfigs (banks, allPreviousConfigs) {
-    	// pseudokod:
-    	// 1 szukaj pierwszej takiej samej liczy przez wszystkie stare configi.
-    	// 2 jesli znajdziesz, przejdz i porownaj druga, trzecia, czwart etc.
-    	// 3 jesli nie - szukaj nastepnej pierwszej liczby do konca
-    	// 4 jesli znajdziesz znowu - krok
-	  	var foundSameConfig = false;
-	    var currentConfig = "";
+	function checkPreviousConfigs(banks, allPreviousConfigs) {
+		  	var foundSameConfig = false;
+		    var currentConfig = "";
+			
 
-    	for (var b = 0; b < allPreviousConfigs.length; b++) {
-    		if (highestValue == allPreviousConfigs(b))  <++++++++++++++++++++++++++++++++++++++
-    	}
-    }
+		
 
-	/*function checkPreviousConfigs(banks, allPreviousConfigs) {
-	  	var foundSameConfig = false;
-	    var currentConfig = "";
-	    
-	    for (var i = 0; i < banks.length; i++) {
-	        currentConfig = currentConfig + banks[i].toString() + "-";
-	    }
+		    for (var i = 0; i < banks.length; i++) {
+		        currentConfig = currentConfig + banks[i].toString() + "-";
+		    }
 
-		for (var z = 0; z < allPreviousConfigs.length; z++) {
-			if (currentConfig == allPreviousConfigs[z]) {
-		  		//console.log("There is a match: " + allPreviousConfigs[z]);
-		  		foundSameConfig = true;
-		  		break;
-		  	}
+		    dict.push({
+			    key:   currentConfig,
+			    value: banks
+			});
+
+
+			for (var z = 0; z < allPreviousConfigs.length; z++) {
+				if (currentConfig == allPreviousConfigs[z]) {
+			  		//console.log("There is a match: " + allPreviousConfigs[z]);
+			  		foundSameConfig = true;
+			  		break;
+			  	}
+			}
+			addToPreviousConfigs(currentConfig, allPreviousConfigs);
+			return foundSameConfig;
 		}
-		addToPreviousConfigs(currentConfig, allPreviousConfigs);
-		return foundSameConfig;
-	}*/
 
 	function addToPreviousConfigs (currentConfig, allPreviousConfigs) {
 		allPreviousConfigs.push(currentConfig);
