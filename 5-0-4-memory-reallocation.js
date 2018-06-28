@@ -1,6 +1,7 @@
 function memAlloc(banks) {
  
-  	var allPreviousConfigs = [];
+  	//var allPreviousConfigs = [];
+  	var allPreviousConfigs = new Set(); //<------------------------------ ZBUDUJ TEN PROGRAM PRZY UZYCIU SET.
   	var dict = [];
   	var highestValue;
   	var indexOfHighestValue;
@@ -48,7 +49,7 @@ function memAlloc(banks) {
 
 			for (var z = 0; z < allPreviousConfigs.length; z++) {
 				if (currentConfig == allPreviousConfigs[z]) {
-			  		//console.log("There is a match: " + allPreviousConfigs[z]);
+			  		console.log("There is a match: " + allPreviousConfigs[z]);
 			  		foundSameConfig = true;
 			  		break;
 			  	}
